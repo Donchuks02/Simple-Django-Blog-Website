@@ -1,11 +1,13 @@
 from django.shortcuts import render
 import requests
+from decouple import config
 
+API_KEY = config('API_KEY')
 
 url = 'https://newsapi.org/v2/top-headlines'
 params = {
         'sources': 'techcrunch',
-        'apiKey': 'c4b476f264c8431c9716206176d054a1'
+        'apiKey': f'{API_KEY}'
     }
 
 response = requests.get(url, params=params)
